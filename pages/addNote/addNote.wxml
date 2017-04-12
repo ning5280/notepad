@@ -1,0 +1,12 @@
+<!--input.wxml-->
+<form bindsubmit="formSubmit">
+<view class="section title">
+  <input name="title" placeholder="便签标题" focus confirm-type="确定"/>
+</view>
+
+<view class="section content">
+  <textarea name="content" bindblur="bindTextAreaBlur" auto-height placeholder="标签内容(最长300个字符)" auto-height="true" maxlength="300" />
+</view>
+
+  <button formType="submit" class="addnotes" type="primary"  bindtap="addnotes" hover-class="other-button-hover" > 添加便签 </button>
+</form>

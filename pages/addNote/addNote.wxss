@@ -1,0 +1,22 @@
+/* pages/add/index.wxss */
+input,textarea,button{
+    border:1px solid #ccc;
+    width:90%;
+    margin-left:5%;
+    border-radius: 5rpx;
+    height:60rpx;
+}
+.title{
+    margin-top:100rpx;
+}
+.content{
+    margin-top:50rpx;  
+}
+.content textarea{
+    min-height:150rpx;
+}
+
+.addnotes{
+    margin-top: 40rpx;
+    height: 90rpx;
+}

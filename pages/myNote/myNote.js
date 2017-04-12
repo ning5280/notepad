@@ -32,13 +32,17 @@ Page({
     })
   },
   addnotes:function(){
-    var noteList = this.data.noteList;
-    console.log(Object.prototype.toString.call(noteList));
-    noteList=noteList.concat([{'name':'1234','id':'12312','time':'2016-05-05'}]);
-    console.log(noteList);
-    this.setData({
-      noteList:noteList
+    wx.redirectTo({
+      url: '../addNote/addNote'
     })
+
+    // var noteList = this.data.noteList;
+    // console.log(Object.prototype.toString.call(noteList));
+    // noteList=noteList.concat([{'name':'1234','id':'12312','time':'2016-05-05'}]);
+    // console.log(noteList);
+    // this.setData({
+    //   noteList:noteList
+    // })
   },
   login:function(){
     app.login();

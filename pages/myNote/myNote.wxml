@@ -1,7 +1,8 @@
 <!--index.wxml-->
 <view class="section">
   <view class="list">
-  <text>{{motto}}</text>
+  <button class="addnotes" type="primary"  bindtap="addnotes" hover-class="other-button-hover" > 添加便签 </button>
+ 
     <block wx:for="{{noteList}}" wx:key="k" wx:for-index="key" wx:for-item="item">  
    
          <view  class="info" hover="true" hover-class="red"> <text selectable="true">1111+{{key}}</text></view>
@@ -10,5 +11,5 @@
 
     
   </view>
-  <button type="primary"  bindtap="addnotes" hover-class="other-button-hover" loading="true"> default </button>
+  <!--<button type="primary"  bindtap="addnotes" hover-class="other-button-hover" loading="true"> default </button>-->
 </view>

@@ -12,3 +12,17 @@
 .other-button-hover {
   background-color: blue;
 }
+
+.info{
+  width:90%;
+  margin-left: 5%;
+  border: 1px solid #ccc;
+  height:80rpx;
+  margin-bottom: 10rpx;
+}
+
+.addnotes{
+  width:90%;
+  margin: 30rpx 5%;
+
+}
