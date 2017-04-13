@@ -12,14 +12,14 @@
             <!--<view class="weui-panel__hd">文字列表附来源</view>-->
           <block wx:for="{{noteList}}" wx:key="k" wx:for-index="key" wx:for-item="item">  
             
-            <view class="weui-panel__bd">
+            <view class="weui-panel__bd" bindtap="editNote" data-id="{{item.id}}">
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
                     <view class="weui-media-box__desc"><text>{{item.content}}</text></view>
                     <view class="weui-media-box__info">
                         <view class="weui-media-box__info__meta">文字来源</view>
                         <view class="weui-media-box__info__meta">{{item.create_time}}</view>
-                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">重要程度:<text>{{item.important==1?'重要':'一般'}}</text></view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">重要程度:<text>{{item.important=='true'?'重要':'一般'}}</text></view>
                     </view>
                 </view>
             </view>

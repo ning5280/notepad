@@ -1,14 +1,29 @@
-// pages/add/index.js
-var util = require('../../utils/util.js');
+// pages/editNote/editNote.js
 var app = getApp();
-
+var util = require('../../../utils/util.js');
 Page({
-  data:{},
+  data:{
+    id:app.editNoteId,
+    info:{}
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    console.log(options);
+    var that = this;
+    util.myAjax({
+        url:'https://ning5280.duapp.com/public/index.php/index/notepad/info',
+        data:{id:options.id},
+         method:'post',
+         success:function(res){
+            that.setData({
+              info:res.data.data
+            })
+         }
+    })
   },
   onReady:function(){
     // 页面渲染完成
+
   },
   onShow:function(){
     // 页面显示
@@ -28,9 +43,9 @@ Page({
         duration: 2000
       })
     }else{
-   
+      e.detail.value['id']=app.editNoteId;
       util.myAjax({
-        url:'https://ning5280.duapp.com/public/index.php/index/notepad/add',
+        url:'https://ning5280.duapp.com/public/index.php/index/notepad/edit',
         data:e.detail.value,
         method:'post',
         success:function(res){
@@ -42,5 +57,4 @@ Page({
       })
     }
   }
-
 })

@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/welcome/welcome",
         "pages/myNote/myNote",
         "pages/setting/setting",
-    "pages/addNote/addNote",
-  
+        "pages/myNote/addNote/addNote",
+        "pages/myNote/editNote/editNote",
        "pages/acceptNote/acceptNote"
 
   ],

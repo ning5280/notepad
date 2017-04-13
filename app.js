@@ -26,6 +26,7 @@ App({
     }
   }, 
   onLaunch: function() {
+    console.log(wx.getStorageSync('session_key'));
     if(wx.getStorageSync('session_key'))return false;
     wx.login({
       success: function(res) {

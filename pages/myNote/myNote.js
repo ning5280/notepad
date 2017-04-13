@@ -37,7 +37,7 @@ Page({
   },
   addnotes:function(){
     wx.redirectTo({
-      url: '../addNote/addNote'
+      url: '../myNote/addNote/addNote'
     })
 
     // var noteList = this.data.noteList;
@@ -47,6 +47,12 @@ Page({
     // this.setData({
     //   noteList:noteList
     // })
+  },
+  editNote:function(e){
+    app.editNoteId = e.currentTarget.dataset.id;
+     wx.redirectTo({
+        url: '../myNote/editNote/editNote?id='+app.editNoteId
+      })
   },
   login:function(){
     app.login();

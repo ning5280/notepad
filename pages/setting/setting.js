@@ -17,8 +17,11 @@ Page({
   },
   onHide:function(){
     // 页面隐藏
+    console.log('onHide');
+    return false;
   },
   onUnload:function(){
     // 页面关闭
+    console.log('onUnload');
   }
 })
