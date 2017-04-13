@@ -1,10 +1,11 @@
 {
   "pages":[
-      "pages/myNote/myNote",
-      "pages/addNote/addNote",
-      "pages/setting/setting"
+        "pages/myNote/myNote",
+        "pages/setting/setting",
+    "pages/addNote/addNote",
+  
+       "pages/acceptNote/acceptNote"
 
-   
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -23,7 +24,7 @@
         "selectedIconPath": "images/tab/yuedu_hl.png"
       },
       {
-        "pagePath": "pages/setting/setting",
+        "pagePath": "pages/acceptNote/acceptNote",
         "text": "收到的便签",
         "iconPath": "images/tab/dianying.png",
         "selectedIconPath": "images/tab/dianying_hl.png"

@@ -1,0 +1,27 @@
+<!--pages/acceptNote/acceptNote.wxml-->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">微微便签</view>
+        <view class="page__desc">收到的便签</view>
+    </view>
+    <view class="page__bd">
+    
+        <view class="weui-panel">
+            <!--<view class="weui-panel__hd">文字列表附来源</view>-->
+          <block wx:for="{{noteList}}" wx:key="k" wx:for-index="key" wx:for-item="item">  
+            
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">标题一</view>
+                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">文字来源</view>
+                        <view class="weui-media-box__info__meta">时间</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
+                    </view>
+                </view>
+            </view>
+         </block>
+        </view>
+    </view>
+</view>

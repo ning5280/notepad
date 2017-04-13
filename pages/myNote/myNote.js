@@ -1,11 +1,15 @@
 //index.js
 //获取应用实例
-var app = getApp()
+var util = require('../../utils/util');
+var app = getApp();
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
-    noteList:{}
+    noteList:{},
+     parseDate:function(ns){
+         return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' '); 
+      }
   },
   //事件处理函数
   bindViewTap: function() {
@@ -15,18 +19,18 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    wx.request({
-      url: 'http://127.0.0.1/data.php',  //仅为示例，并非真实的接口地址 
+   util.myAjax({
+      url: 'https://ning5280.duapp.com/public/index.php/index/notepad',  //仅为示例，并非真实的接口地址 
       data: {
-       
+       _: (new Date()).getTime()
       },
       header: {
           'content-type': 'application/json' 
       },
       success: function(res) {
-        console.log(res.data);
+       
         that.setData({
-          noteList:res.data
+          noteList:res.data.data
         })
       }
     })

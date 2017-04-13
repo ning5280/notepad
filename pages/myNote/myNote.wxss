@@ -1,8 +1,13 @@
 /**index.wxss**/
-.red{
-  background:red;
-}
 
+
+/*page{
+  background: #ccc;
+}*/
+
+.red{
+  background:red !important;
+}
 /** wxss **/
 /** 修改button默认的点击态样式类**/
 .button-hover {
@@ -17,12 +22,22 @@
   width:90%;
   margin-left: 5%;
   border: 1px solid #ccc;
-  height:80rpx;
-  margin-bottom: 10rpx;
+  height:180rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  text-indent: 2em;
+  box-shadow: 5px 5px 5px #888888;
+  padding:5rpx;
+  box-sizing: border-box;
 }
 
 .addnotes{
   width:90%;
   margin: 30rpx 5%;
 
+}
+
+.ctime{
+  font-size: 12px;
 }

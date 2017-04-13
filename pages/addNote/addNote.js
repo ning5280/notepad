@@ -1,5 +1,7 @@
 // pages/add/index.js
-var util = require('../../utils/util.js')
+var util = require('../../utils/util.js');
+var app = getApp();
+
 Page({
   data:{},
   onLoad:function(options){
@@ -19,21 +21,16 @@ Page({
   },
    formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
-    if(!e.detail.value.title){
-      wx.showToast({
+     if(!e.detail.value.title){
+       wx.showToast({ 
         title: '标题不能为空',
         icon: 'success',
         duration: 2000
       })
-    }else if(!e.detail.value.title){
-       wx.showToast({ 
-        title: '内容不能为空',
-        icon: 'success',
-        duration: 2000
-      })
     }else{
+   
       util.myAjax({
-        url:'http://127.0.0.1/success.php',
+        url:'https://ning5280.duapp.com/public/index.php/index/notepad/add',
         data:e.detail.value,
         method:'post',
         success:function(res){

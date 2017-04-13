@@ -1,5 +1,5 @@
 /* pages/add/index.wxss */
-input,textarea,button{
+/*input,textarea,button{
     border:1px solid #ccc;
     width:90%;
     margin-left:5%;
@@ -13,10 +13,14 @@ input,textarea,button{
     margin-top:50rpx;  
 }
 .content textarea{
-    min-height:150rpx;
+    min-height:350rpx;
+    padding:20rpx;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+   
 }
 
 .addnotes{
     margin-top: 40rpx;
     height: 90rpx;
-}
+}*/

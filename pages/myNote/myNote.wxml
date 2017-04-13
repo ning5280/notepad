@@ -1,15 +1,29 @@
 <!--index.wxml-->
-<view class="section">
-  <view class="list">
-  <button class="addnotes" type="primary"  bindtap="addnotes" hover-class="other-button-hover" > 添加便签 </button>
- 
-    <block wx:for="{{noteList}}" wx:key="k" wx:for-index="key" wx:for-item="item">  
-   
-         <view  class="info" hover="true" hover-class="red"> <text selectable="true">1111+{{key}}</text></view>
-    </block>
-   
 
-    
-  </view>
-  <!--<button type="primary"  bindtap="addnotes" hover-class="other-button-hover" loading="true"> default </button>-->
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">微微便签</view>
+        <view class="page__desc">我的便签</view>
+    </view>
+    <view class="page__bd">
+        <button class="" type="primary"  bindtap="addnotes" hover-class="other-button-hover" > 添加便签 </button>
+        <view class="weui-panel">
+            <!--<view class="weui-panel__hd">文字列表附来源</view>-->
+          <block wx:for="{{noteList}}" wx:key="k" wx:for-index="key" wx:for-item="item">  
+            
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+                    <view class="weui-media-box__desc"><text>{{item.content}}</text></view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">文字来源</view>
+                        <view class="weui-media-box__info__meta">{{item.create_time}}</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">重要程度:<text>{{item.important==1?'重要':'一般'}}</text></view>
+                    </view>
+                </view>
+            </view>
+         </block>
+        </view>
+    </view>
 </view>

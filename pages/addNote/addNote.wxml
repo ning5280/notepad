@@ -1,12 +1,61 @@
-<!--input.wxml-->
-<form bindsubmit="formSubmit">
+
+<!--<form bindsubmit="formSubmit">
 <view class="section title">
-  <input name="title" placeholder="便签标题" focus confirm-type="确定"/>
+  <input name="title" placeholder="便签标题" focus maxlength="16" confirm-type="确定"/>
 </view>
 
 <view class="section content">
-  <textarea name="content" bindblur="bindTextAreaBlur" auto-height placeholder="标签内容(最长300个字符)" auto-height="true" maxlength="300" />
+  <textarea name="content" bindblur="bindTextAreaBlur" auto-height placeholder="便签内容(最长300个字符)" auto-height="true" maxlength="300" />
 </view>
 
   <button formType="submit" class="addnotes" type="primary"  bindtap="addnotes" hover-class="other-button-hover" > 添加便签 </button>
-</form>
+</form>-->
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">微微便签</view>
+        <view class="page__desc">添加便签</view>
+    </view>
+    <view class="page__bd">
+      <form bindsubmit="formSubmit">
+ 
+          <!--<view class="weui-cells__tips">底部说明文字底部说明文字</view>-->
+
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_switch">
+                  <view class="weui-cell__bd">是否着重展示</view>
+                  <view class="weui-cell__ft">
+                      <switch name="important" checked />
+                  </view>
+              </view>
+          </view>
+
+          <view class="weui-cells__title">便签标题</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__bd">
+                      <input name="title" class="weui-input" placeholder="请输入标题" maxlength="16" />
+                  </view>
+              </view>
+          </view>
+
+          <view class="weui-cells__title">便签内容</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell">
+                  <view class="weui-cell__bd">
+                      <textarea class="weui-textarea" name="content" placeholder="请输入内容" style="min-height: 3.3em" auto-height maxlength="300" />
+                      <!--<view class="weui-textarea-counter">0/200</view>-->
+                  </view>
+              </view>
+          </view>
+
+
+
+
+          <view class="weui-btn-area">
+              <button formType="submit" class="weui-btn" type="primary" bindtap="showTopTips">提交</button>
+          </view>
+        </form>
+    </view>
+
+</view>

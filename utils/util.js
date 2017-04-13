@@ -18,6 +18,7 @@ function formatNumber(n) {
 
 function myAjax(e){
   wx.showLoading({title:"正在加载中"});
+  e.data['session_key'] = wx.getStorageSync('session_key')?wx.getStorageSync('session_key'):'';
   wx.request({
     url: e.url, //仅为示例，并非真实的接口地址
     data: e.data,
@@ -29,16 +30,19 @@ function myAjax(e){
        if(res.data.code=='1'){
         e.success(res);
        }else{
+      
          wx.showToast({ 
-          title: res.data.message,
+          title: res.data.message? res.data.message:'请求失败',
           icon: 'success',
           duration: 2000
         })
        }
     },
     fail:function(){
+      wx.hideLoading();
+    
        wx.showToast({ 
-          title: '请求失败，请稍后再试',
+          title: '请求失败',
           icon: 'success',
           duration: 2000
         })
