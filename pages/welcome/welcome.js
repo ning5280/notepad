@@ -8,7 +8,15 @@ Page({
   },
   //事件处理函数
   onTap: function() {
-      
+      var session_key=wx.getStorageSync('session_key');
+      if(!session_key){
+        wx.showToast({ 
+          title: '您未授权登录',
+          icon: 'success',
+          duration: 2000
+        })
+        return false;
+      }
     wx.switchTab({
       url: '../myNote/myNote'
     })
