@@ -17,7 +17,15 @@ function formatNumber(n) {
 }
 
 function myAjax(e){
-  wx.showLoading({title:"正在加载中"});
+  // 目前不太支持
+  // wx.showLoading({title:"正在加载中"});
+  wx.showToast({
+    title:"正在加载中..",
+    icon:'loading',
+    mask:true,
+
+  })
+
   e.data['session_key'] = wx.getStorageSync('session_key')?wx.getStorageSync('session_key'):'';
   wx.request({
     url: e.url, //仅为示例，并非真实的接口地址
@@ -26,7 +34,9 @@ function myAjax(e){
         'content-type': 'application/json' 
     },
     success: function(res) {
-       wx.hideLoading();
+         //目前不太支持
+      // wx.hideLoading();
+         wx.hideToast()
        if(res.data.code=='1'){
         e.success(res);
        }else{
@@ -39,8 +49,9 @@ function myAjax(e){
        }
     },
     fail:function(){
-      wx.hideLoading();
-    
+      //目前不太支持
+      // wx.hideLoading();
+    wx.hideToast()
        wx.showToast({ 
           title: '请求失败',
           icon: 'success',
@@ -49,6 +60,7 @@ function myAjax(e){
     }
   })
 }
+
 
 module.exports = {
   formatTime: formatTime,

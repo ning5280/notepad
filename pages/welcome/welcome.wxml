@@ -1,7 +1,7 @@
 <view class="container">
-    <image class="avatar" src="/images/1.png"></image>
-    <text class="motto">Hello, 七月</text>
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="motto">{{userInfo.nickName}}</text>
     <view class="journey-container" bindtap="onTap">
-        <text class="journey">开启小程序之旅</text>
+        <text class="journey">开启我的便签</text>
     </view>
 </view>

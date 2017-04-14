@@ -10,7 +10,7 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     console.log(options);
     var that = this;
-    util.myAjax({
+    app.myAjax({
         url:'https://ning5280.duapp.com/public/index.php/index/notepad/info',
         data:{id:options.id},
          method:'post',
@@ -44,14 +44,14 @@ Page({
       })
     }else{
       e.detail.value['id']=app.editNoteId;
-      util.myAjax({
+      app.myAjax({
         url:'https://ning5280.duapp.com/public/index.php/index/notepad/edit',
         data:e.detail.value,
         method:'post',
         success:function(res){
          
             wx.switchTab({
-              url: '../myNote/myNote'
+              url: '../myNote'
             })
         }
       })

@@ -1,5 +1,7 @@
-//app.js
+
+
 var util = require('utils/util');
+
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -14,55 +16,102 @@ App({
     }else{
       //调用登录接口
       wx.login({
-        success: function () {
+        success: function (res) {
           wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
+            success: function (res1) {
+              that.globalData.userInfo = res1.userInfo
+              typeof cb == "function" && cb(that.globalData.userInfo);
+              console.log(res1);
+            
+              // 发起网络请求
+                util.myAjax({
+                  url: 'https://ning5280.duapp.com/public/index.php/index/login/index',
+                  data: {
+                    code: res.code,
+                    wxname:that.globalData.userInfo.nickName
+                  },
+                  success:function(res){
+                    // 保存返回的 key;
+                    wx.setStorageSync('session_key', res.data.data.openid);
+                
+                    console.log(wx.getStorageSync('session_key')+'1111')
+                    if(res.data.code=='3')return false;
+                    if(res.data.code=='0'){
+                      wx.showToast({ 
+                        title: '登录失败',
+                        icon: 'success',
+                        duration: 2000
+                      })
+                    }
+                  
+                  }
+                })
+           
+
             }
           })
+
         }
       })
+
+      
     }
-  }, 
-  onLaunch: function() {
-    console.log(wx.getStorageSync('session_key'));
-    if(wx.getStorageSync('session_key'))return false;
-    wx.login({
+  },
+  myAjax:function(e){
+    var that = this;
+    // 目前不太支持
+    // wx.showLoading({title:"正在加载中"});
+    wx.showToast({
+      title:"正在加载中..",
+      icon:'loading',
+      mask:true,
+
+    })
+
+    e.data['session_key'] = wx.getStorageSync('session_key')?wx.getStorageSync('session_key'):'';
+    wx.request({
+      url: e.url, //仅为示例，并非真实的接口地址
+      data: e.data,
+      header: {
+          'content-type': 'application/json' 
+      },
       success: function(res) {
-        console.log(res);
-        if (res.code) {
-          // 发起网络请求
-          util.myAjax({
-            url: 'https://ning5280.duapp.com/public/index.php/index/login/index',
-            data: {
-              code: res.code
-            },
-            success:function(res){
-              // var data = res.data.data;
-              // console.log(data);
-              // 保存返回的 key;
-               wx.setStorageSync('session_key', res.data.data.openid);
-           
-               console.log(wx.getStorageSync('session_key')+'1111')
-               if(res.data.code=='3')return false;
-               if(res.data.code=='0'){
-                 wx.showToast({ 
-                  title: '登录失败',
-                  icon: 'success',
-                  duration: 2000
-                })
-               }
-            
-            }
+          //目前不太支持
+        // wx.hideLoading();
+          wx.hideToast()
+        if(res.data.code=='1'){
+          e.success(res);
+        }else if(res.data.code=='2'){
+          // 未登录
+         that.globalData.userInfo=null;
+          that.getUserInfo(function(userInfo){
+            //更新数据
+            that.globalData.globalData=userInfo;
           })
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
+        }else{
+        
+          wx.showToast({ 
+            title: res.data.message? res.data.message:'请求失败',
+            icon: 'success',
+            duration: 2000
+          })
         }
+      },
+      fail:function(){
+        //目前不太支持
+        // wx.hideLoading();
+      wx.hideToast()
+        wx.showToast({ 
+            title: '请求失败',
+            icon: 'success',
+            duration: 2000
+          })
       }
-    });
+    })
   },
   globalData:{
     userInfo:null
   }
+
+
 })

@@ -29,14 +29,14 @@ Page({
       })
     }else{
    
-      util.myAjax({
+      app.myAjax({
         url:'https://ning5280.duapp.com/public/index.php/index/notepad/add',
         data:e.detail.value,
         method:'post',
         success:function(res){
          
             wx.switchTab({
-              url: '../../myNote/myNote'
+              url: '../myNote'
             })
         }
       })

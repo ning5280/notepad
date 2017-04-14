@@ -19,7 +19,7 @@ Page({
   },
   onLoad: function () {
     var that = this;
-   util.myAjax({
+   app.myAjax({
       url: 'https://ning5280.duapp.com/public/index.php/index/notepad',  //仅为示例，并非真实的接口地址 
       data: {
        _: (new Date()).getTime()
