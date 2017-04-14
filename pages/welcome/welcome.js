@@ -17,9 +17,26 @@ Page({
         })
         return false;
       }
-    wx.switchTab({
-      url: '../myNote/myNote'
+
+    app.myAjax({
+      url: 'https://ning5280.duapp.com/public/index.php/index/user/info',
+       data: {
+       _: (new Date()).getTime()
+      },
+      method:'post',
+      success:function(res){
+        console.log(res);
+        if(res.data.code=='1'){
+          app.globalData.myUserInfo=res.data.data;
+        }
+         wx.switchTab({
+            url: '../myNote/myNote'
+          })
+         
+      }
     })
+
+   
   },
   onLoad: function () {
     console.log('onLoad')
@@ -31,5 +48,8 @@ Page({
         userInfo:userInfo
       })
     })
+
+   
+
   }
 })

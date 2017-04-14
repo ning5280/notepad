@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">微微便签</view>
+        <view class="page__desc">设置接收码</view>
+    </view>
+    <view class="page__bd">
+      <form bindsubmit="formSubmit">
+ 
+          <!--<view class="weui-cells__tips">底部说明文字底部说明文字</view>-->
+
+          <view class="weui-cells__title">设置接收码（6个字符内）</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__bd">
+                      <input name="code" class="weui-input" placeholder="请输入接收码" maxlength="6" />
+                  </view>
+              </view>
+          </view>
+
+          <view class="weui-btn-area">
+              <button bindtap="back" class="weui-btn" type="default">返回</button>
+          </view>
+           <view class="weui-btn-area">
+              <button formType="submit" class="weui-btn" type="primary" bindtap="showTopTips">提交</button>
+          </view>
+        </form>
+    </view>
+
+</view>

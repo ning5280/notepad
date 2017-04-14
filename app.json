@@ -1,12 +1,16 @@
 {
   "pages":[
+     
     "pages/welcome/welcome",
         "pages/myNote/myNote",
         "pages/setting/setting",
+        "pages/setting/addShareCode/addShareCode",
+        "pages/myNote/shareNote/shareNote",
         "pages/myNote/addNote/addNote",
         "pages/myNote/editNote/editNote",
-       "pages/acceptNote/acceptNote"
-
+       "pages/acceptNote/acceptNote",
+      "pages/acceptNote/noteInfo/noteInfo"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",

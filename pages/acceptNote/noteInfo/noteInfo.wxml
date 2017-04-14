@@ -1,0 +1,23 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">微微便签</view>
+        <view class="page__desc">便签详情</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1">{{info.title}}</view>
+            <view class="weui-article__section">
+                <view class="weui-article__title">分享人：{{info.share_name}}</view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">分享时间：{{info.create_time }}</view>
+                   
+                    <view class="weui-article__p">
+                       {{info.content}}
+                    </view>
+                  
+                </view>
+            
+            </view>
+        </view>
+    </view>
+</view>

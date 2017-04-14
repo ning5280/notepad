@@ -12,7 +12,7 @@
             <!--<view class="weui-panel__hd">文字列表附来源</view>-->
           <block wx:for="{{noteList}}" wx:key="k" wx:for-index="key" wx:for-item="item">  
             
-            <view class="weui-panel__bd" bindtap="editNote" data-id="{{item.id}}">
+            <view class="weui-panel__bd" bindtap="editNote" bindtouchstart="setTapStartTime" bindlongtap="delNote" data-id="{{item.id}}">
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
                     <view class="weui-media-box__desc"><text>{{item.content}}</text></view>

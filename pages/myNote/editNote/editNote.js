@@ -43,6 +43,17 @@ Page({
     })
   },
    formSubmit: function(e) {
+    if(e.detail.target.dataset.type=='share'){
+      console.log(app.globalData);
+      if(!app.globalData.myUserInfo.share_word ){
+         wx.showToast({ 
+            title: '请先设置您的接收码',
+            icon: 'success',
+            duration: 2000
+          });
+          return false;
+      }
+    }
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
      if(!e.detail.value.title){
        wx.showToast({ 
@@ -57,12 +68,20 @@ Page({
         data:e.detail.value,
         method:'post',
         success:function(res){
-         
-            wx.switchTab({
-              url: '../myNote'
-            })
+            if(e.detail.target.dataset.type=='share'){
+                wx.redirectTo({
+                  url: '../shareNote/shareNote?id='+app.editNoteId
+
+                })
+            }else{
+              wx.switchTab({
+                  url: '../myNote'
+                })
+            }
+           
         }
       })
     }
   }
+
 })

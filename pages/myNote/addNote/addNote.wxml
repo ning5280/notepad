@@ -55,8 +55,9 @@
           <view class="weui-btn-area">
               <button bindtap="back" class="weui-btn" type="default">返回</button>
           </view>
+          
            <view class="weui-btn-area">
-              <button formType="submit" class="weui-btn" type="primary" bindtap="showTopTips">提交</button>
+              <button formType="submit" class="weui-btn" type="primary" >提交</button>
           </view>
         </form>
     </view>

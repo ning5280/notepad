@@ -7,7 +7,13 @@ App({
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    wx.setStorageSync('logs', logs);
+     wx.showToast({
+      title:"正在加载中..",
+      icon:'loading',
+      mask:true,
+      duration:99999999
+    })
   },
   getUserInfo:function(cb){
     var that = this
@@ -21,7 +27,7 @@ App({
             success: function (res1) {
               that.globalData.userInfo = res1.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo);
-              console.log(res1);
+           
             
               // 发起网络请求
                 util.myAjax({
@@ -45,9 +51,9 @@ App({
                     }
 
                     // 转跳到欢迎页
-                    wx.redirectTo({
-                      url:'/pages/welcome/welcome'
-                    })
+                    // wx.redirectTo({
+                    //   url:'/pages/welcome/welcome'
+                    // })
                   }
                 })
            
@@ -69,7 +75,7 @@ App({
       title:"正在加载中..",
       icon:'loading',
       mask:true,
-
+      duration:99999999
     })
 
     e.data['session_key'] = wx.getStorageSync('session_key')?wx.getStorageSync('session_key'):'';
@@ -114,7 +120,8 @@ App({
     })
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    myUserInfo:null
   }
 
 
