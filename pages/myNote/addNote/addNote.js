@@ -19,6 +19,11 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
+  back:function(){
+    wx.switchTab({
+      url:"/pages/myNote/myNote"
+    })
+  },
    formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
      if(!e.detail.value.title){

@@ -12,7 +12,10 @@ Page({
     var that = this;
     app.myAjax({
         url:'https://ning5280.duapp.com/public/index.php/index/notepad/info',
-        data:{id:options.id},
+        data:{
+          id:options.id,
+           _: (new Date()).getTime()
+          },
          method:'post',
          success:function(res){
             that.setData({
@@ -33,6 +36,11 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },
+    back:function(){
+    wx.switchTab({
+      url:"/pages/myNote/myNote"
+    })
   },
    formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value);

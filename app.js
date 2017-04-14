@@ -34,7 +34,7 @@ App({
                     // 保存返回的 key;
                     wx.setStorageSync('session_key', res.data.data.openid);
                 
-                    console.log(wx.getStorageSync('session_key')+'1111')
+                    console.log(wx.getStorageSync('session_key'))
                     if(res.data.code=='3')return false;
                     if(res.data.code=='0'){
                       wx.showToast({ 
@@ -43,7 +43,11 @@ App({
                         duration: 2000
                       })
                     }
-                  
+
+                    // 转跳到欢迎页
+                    wx.redirectTo({
+                      url:'/pages/welcome/welcome'
+                    })
                   }
                 })
            
