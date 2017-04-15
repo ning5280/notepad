@@ -7,7 +7,10 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     noteList:{},
-    startTime:0
+    startTime:0,
+    inputShowed: false,
+    inputVal: "",
+    serachNoteList:{}
   },
   //事件处理函数
   bindViewTap: function() {
@@ -28,7 +31,8 @@ Page({
       success: function(res) {
        
         that.setData({
-          noteList:res.data.data
+          noteList:res.data.data,
+          serachNoteList:res.data.data,
         })
       }
     })
@@ -91,6 +95,43 @@ Page({
           }
       });
   },
+    showInput: function () {
+   
+        this.setData({
+            inputShowed: true,
+            
+
+        });
+    },
+    hideInput: function () {
+         var that = this;
+        this.setData({
+            inputVal: "",
+            inputShowed: false,
+            serachNoteList:that.data.noteList
+        });
+    },
+    clearInput: function () {
+        this.setData({
+            inputVal: ""
+        });
+    },
+    inputTyping: function (e) {
+      // 获取原始列表
+        var noteList = this.data.noteList;
+        var resultNoteList = [];
+        var keyWord = util.trim(e.detail.value);
+        for(let key in noteList){
+          let title  =noteList[key]['title'];
+          let content = noteList[key]['content'];
+          if(title.indexOf(keyWord)>=0||content.indexOf(keyWord)>=0){
+            resultNoteList.push(noteList[key]);
+          }
+        }
+        this.setData({
+            serachNoteList: resultNoteList
+        });
+    },
   login:function(){
     app.login();
   }
