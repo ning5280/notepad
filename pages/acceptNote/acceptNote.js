@@ -42,7 +42,7 @@ Page({
     // 如果时间长于200ms 则不处罚
     if(Date.now()-this.data.startTime>350)return false;
     app.editNoteId = e.currentTarget.dataset.id;
-     wx.redirectTo({
+     wx.navigateTo({
         url: 'noteInfo/noteInfo?id='+app.editNoteId
       })
   },
