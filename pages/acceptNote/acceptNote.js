@@ -34,6 +34,7 @@ Page({
           noteList:res.data.data,
           serachNoteList:res.data.data,
         })
+         wx.stopPullDownRefresh();
       }
     })
   },
@@ -119,6 +120,12 @@ Page({
             serachNoteList: resultNoteList
         });
     },
+  onPullDownRefresh: function(){
+    this.clearInput();
+    this.hideInput();
+    this.onLoad();
+   
+  },
   login:function(){
     app.login();
   }
