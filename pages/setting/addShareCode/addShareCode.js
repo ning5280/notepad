@@ -27,7 +27,8 @@ Page({
   formSubmit: function(e) {
     var that = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
-     if(!e.detail.value.code){
+    var code = util.trim(e.detail.value.code);
+     if(!code){
        wx.showToast({ 
         title: '分享码不能为空',
         icon: 'success',
@@ -40,6 +41,7 @@ Page({
         data:e.detail.value,
         method:'post',
         success:function(res){
+              app.globalData.myUserInfo.share_word=code;
              wx.getUserInfo({
                success:function(res){
                   app.globalData.userInfo = res.userInfo
