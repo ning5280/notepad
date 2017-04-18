@@ -47,7 +47,7 @@ Page({
       console.log(app.globalData);
       if(!app.globalData.myUserInfo.share_word ){
          wx.showToast({ 
-            title: '请先设置您的接收码',
+            title: '请先设置您的便签名',
             icon: 'success',
             duration: 2000
           });

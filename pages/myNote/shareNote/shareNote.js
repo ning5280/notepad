@@ -36,7 +36,7 @@ Page({
    
      if(!e.detail.value.code){
        wx.showToast({ 
-        title: '分享码不能为空',
+        title: '便签名不能为空',
         icon: 'success',
         duration: 2000
       })

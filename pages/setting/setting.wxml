@@ -20,7 +20,7 @@
             </view>
             <view class="weui-cell weui-cell_access" bindtap="setCode">
                 <view class="weui-cell__bd">
-                    <view style="display: inline-block; vertical-align: middle">接收码</view>
+                    <view style="display: inline-block; vertical-align: middle">便签名</view>
                   
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">{{myUserInfo.share_word?myUserInfo.share_word:'未设置'}}</view>
